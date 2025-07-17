@@ -172,7 +172,7 @@ include 'components/wishlist_cart.php';
          <?php
                }
             }else{
-               echo '<p class="empty">¡NO HAY LIBROS GRATIS DISPONIBLES!</p>';
+               echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; color: inherit;">¡NO HAY LIBROS GRATIS DISPONIBLES!</a></p>';
             }
          ?>
       </div>
@@ -213,7 +213,7 @@ $select_categories->execute();
          <?php
             }
          } else {
-            echo '<p class="empty">No hay categorías disponibles.</p>';
+            echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; color: inherit;">Inicia sesión para conocer las categorías disponibles.</a></p>';
          }
          ?>
       </div>
@@ -265,7 +265,7 @@ if ($category) {
          <?php
             }
          } else {
-            echo '<p class="empty">No hay productos disponibles en esta categoría.</p>';
+            echo '<p class="empty">No hay productos disponibles en esta categoría.</p>';//Creo que se quitará
          }
          ?>
       </div>
@@ -378,10 +378,10 @@ if ($category) {
          <?php
                }
             } else {
-               echo '<p class="empty">¡NO HAY LIBROS DISPONIBLES!</p>';
+               echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; color: inherit;">¡NO HAY LIBROS DISPONIBLES!</a></p>';
             }
          } else {
-            echo '<p class="empty">Por favor, inicie sesión para ver sus productos comprados.</p>';
+            echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; inherit;">Por favor, inicie sesión para ver sus productos comprados.</a></p>';
          }
          ?>
       </div>

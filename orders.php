@@ -39,7 +39,7 @@ if(isset($_SESSION['user_id'])){
 
    <?php
       if($user_id == '') {
-         echo '<p class="empty">INICIA SESIÓN PARA VER TUS PEDIDOS</p>';
+         echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; color: inherit;">INICIA SESIÓN PARA VER TUS PEDIDOS</a></p>';
       } else {
          // Consultar los pagos realizados por el usuario
          $select_orders = $conn->prepare("SELECT p.*, u.name AS user_name FROM `payments` p 
@@ -90,7 +90,7 @@ if(isset($_SESSION['user_id'])){
    <?php
          }
       } else {
-         echo '<p class="empty">¡AÚN NO HAS REALIZADO NINGUN PEDIDO!</p>';
+         echo '<p class="empty"><a href="shop.php" style="text-decoration: none; color: inherit;">¡CONOCE NUESTROS LIBROS Y REALIZA TU PEDIDO!</a></p>';
       }
    }
 

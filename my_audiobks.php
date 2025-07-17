@@ -86,7 +86,7 @@ if(isset($_SESSION['user_id'])){
    <?php
          }
       } else {
-         echo '<p class="empty">¡AÚN NO HAS COMPRADO LIBROS!</p>';
+         echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; color: inherit;">¡INICIA SESIÓN PARA CONOCER TUS AUDIOLIBROS!</a></p>';
       }
    ?>
    </div>
