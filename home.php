@@ -378,7 +378,7 @@ if ($category) {
          <?php
                }
             } else {
-               echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; color: inherit;">¡NO HAY LIBROS DISPONIBLES!</a></p>';
+               echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; color: inherit;">¡NO HAY LIBROS DISPONIBLES!</a></p>'; //Solo para guardar
             }
          } else {
             echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; inherit;">Por favor, inicie sesión para ver sus productos comprados.</a></p>';

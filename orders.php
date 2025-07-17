@@ -80,7 +80,7 @@ if(isset($_SESSION['user_id'])){
       <?php
                }
             } else {
-               echo '<p class="empty">No has comprado libros en este pedido.</p>';
+               echo '<p class="empty">No has comprado libros en este pedido.</p>'; //Aqui hay dudas
             }
          }
       ?>
