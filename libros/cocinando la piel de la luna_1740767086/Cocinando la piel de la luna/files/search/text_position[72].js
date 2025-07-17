@@ -1,0 +1,1 @@
+positionForPages[72]={"page":72,"positions":[{"word":"Cocinando la piel de la luna...","left":0.138299,"top":0.024248,"width":0.427697,"height":0.056412},{"word":"72","left":0.488301,"top":0.919541,"width":0.033151,"height":0.014216}]};

@@ -1,0 +1,1 @@
+positionForPages[420]={"page":420,"positions":[{"word":"[7]","left":0.127312,"top":0.161643,"width":0.018419,"height":0.012571},{"word":" Oswald Nuckols es un alias que us\u00e9 a petici\u00f3n del autor citado. <<","left":0.147231,"top":0.163750,"width":0.657766,"height":0.017367}]};

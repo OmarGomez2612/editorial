@@ -1,0 +1,1 @@
+positionForPages[378]={"page":378,"positions":[{"word":"[19]","left":0.127312,"top":0.161643,"width":0.027610,"height":0.012571},{"word":" Kent Berridge, conversaci\u00f3n con el autor, 8 de marzo 2017. <<","left":0.156422,"top":0.163750,"width":0.624065,"height":0.017405}]};

@@ -1,0 +1,1 @@
+positionForPages[3]={"page":3,"positions":[{"word":"Manuel Reyes Garcia","left":0.370437,"top":0.098821,"width":0.242015,"height":0.018246}]};

@@ -1,0 +1,1 @@
+positionForPages[525]={"page":525,"positions":[{"word":"[\u2217\u2217]","left":0.127312,"top":0.161644,"width":0.027611,"height":0.012571},{"word":" Puedes ver mis Rese\u00f1as anuales en jamesclear.com/annual-review <<","left":0.156422,"top":0.163732,"width":0.691084,"height":0.017424}]};

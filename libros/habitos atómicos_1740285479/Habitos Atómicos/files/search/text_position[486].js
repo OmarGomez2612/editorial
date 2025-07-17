@@ -1,0 +1,1 @@
+positionForPages[486]={"page":486,"positions":[{"word":"[4] David","left":0.127312,"top":0.161643,"width":0.087608,"height":0.015687},{"word":" Epstein, El gen deportivo: Un atleta excelente \u00bfnace o se hace?,","left":0.214870,"top":0.163750,"width":0.657022,"height":0.017405},{"word":"Indicios, 2014. <<","left":0.126417,"top":0.187425,"width":0.179365,"height":0.016477}]};

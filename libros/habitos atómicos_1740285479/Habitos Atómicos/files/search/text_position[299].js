@@ -1,0 +1,1 @@
+positionForPages[299]={"page":299,"positions":[{"word":"[10]","left":0.127312,"top":0.161643,"width":0.027610,"height":0.012571},{"word":" John R. Anderson, \u00abAcquisition of Cognitive Skill\u00bb, op. cit. <<","left":0.156422,"top":0.163750,"width":0.628641,"height":0.017405}]};

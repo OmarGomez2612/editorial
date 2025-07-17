@@ -1,0 +1,1 @@
+positionForPages[465]={"page":465,"positions":[{"word":"[1] Trent","left":0.127312,"top":0.161643,"width":0.081946,"height":0.015687},{"word":" Dyrsmid, intercambio de correos electr\u00f3nicos con el autor, 1 de","left":0.209209,"top":0.163750,"width":0.664008,"height":0.017405},{"word":"abril 2015. <<","left":0.126687,"top":0.187424,"width":0.138922,"height":0.013580}]};

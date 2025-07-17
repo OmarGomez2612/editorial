@@ -1,0 +1,1 @@
+positionForPages[504]={"page":504,"positions":[{"word":"[\u2217]","left":0.127312,"top":0.161644,"width":0.018419,"height":0.012571},{"word":" Si se trata de Harry Potter, nuevamente comparto tus sentimientos. <<","left":0.147231,"top":0.163751,"width":0.692865,"height":0.017405}]};

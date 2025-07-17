@@ -1,0 +1,1 @@
+positionForPages[73]={"page":73,"positions":[{"word":"Roberto Alonso Quiroz...","left":0.422617,"top":0.027045,"width":0.438273,"height":0.052255},{"word":"73","left":0.499038,"top":0.926026,"width":0.033000,"height":0.014000}]};

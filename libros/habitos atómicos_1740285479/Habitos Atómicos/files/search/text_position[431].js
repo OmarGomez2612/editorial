@@ -1,0 +1,1 @@
+positionForPages[431]={"page":431,"positions":[{"word":"[\u2217]","left":0.127312,"top":0.161643,"width":0.018419,"height":0.012571},{"word":" Para ser sinceros, esto todav\u00eda suena como una noche fabulosa. <<","left":0.147231,"top":0.163750,"width":0.658417,"height":0.016477}]};

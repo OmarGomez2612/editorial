@@ -1,0 +1,1 @@
+positionForPages[364]={"page":364,"positions":[{"word":"[5]","left":0.127312,"top":0.161643,"width":0.018419,"height":0.012571},{"word":" Steven Witherly, op. cit. <<","left":0.147231,"top":0.163750,"width":0.276753,"height":0.017405}]};

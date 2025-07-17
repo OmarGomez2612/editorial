@@ -1,0 +1,1 @@
+positionForPages[531]={"page":531,"positions":[{"word":"[3] Friedrich","left":0.127312,"top":0.161643,"width":0.121398,"height":0.015687},{"word":" Nietzsche, El crep\u00fasculo de los \u00eddolos, Madrid, Biblioteca","left":0.248857,"top":0.163750,"width":0.625046,"height":0.017367},{"word":"Edaf, 2002. <<","left":0.126319,"top":0.187424,"width":0.146777,"height":0.016477}]};

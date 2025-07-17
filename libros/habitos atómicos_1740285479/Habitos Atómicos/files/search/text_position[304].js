@@ -1,0 +1,1 @@
+positionForPages[304]={"page":304,"positions":[{"word":"[2]","left":0.127312,"top":0.161643,"width":0.018419,"height":0.012571},{"word":" Gary A. Klein, Sources of Power\u2026, ibidem, pp. 38-40. <<","left":0.147231,"top":0.163750,"width":0.576596,"height":0.017405}]};

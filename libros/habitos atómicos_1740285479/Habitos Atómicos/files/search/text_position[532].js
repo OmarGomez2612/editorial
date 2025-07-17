@@ -1,0 +1,1 @@
+positionForPages[532]={"page":532,"positions":[{"word":"[4]","left":0.127312,"top":0.161643,"width":0.018419,"height":0.012571},{"word":" Daniel Kahneman, Pensar r\u00e1pido, pensar despacio, Debate, 2014. <<","left":0.147231,"top":0.163750,"width":0.691831,"height":0.017367}]};

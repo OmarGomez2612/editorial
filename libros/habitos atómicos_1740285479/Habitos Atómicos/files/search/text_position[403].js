@@ -1,0 +1,1 @@
+positionForPages[403]={"page":403,"positions":[{"word":"[2]","left":0.127312,"top":0.161643,"width":0.018419,"height":0.012571},{"word":" Voltaire, La B\u00e9gueule. Conte Moral, 1772 [La remilgada. Cuento moral].","left":0.147231,"top":0.163750,"width":0.724954,"height":0.017405},{"word":"<<","left":0.126294,"top":0.189848,"width":0.027010,"height":0.009205}]};

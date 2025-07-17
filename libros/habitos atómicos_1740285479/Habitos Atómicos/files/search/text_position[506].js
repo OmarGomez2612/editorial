@@ -1,0 +1,1 @@
+positionForPages[506]={"page":506,"positions":[{"word":"[2] Ibidem","left":0.127312,"top":0.161643,"width":0.093008,"height":0.015649},{"word":", p. 1. <<","left":0.222735,"top":0.164091,"width":0.087451,"height":0.017026}]};

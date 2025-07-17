@@ -1,0 +1,64 @@
+/* Reproductor de audio flotante */
+.audio-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 9999; /* Asegúrate de que esté sobre el contenido */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.audio-player .card-body {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.audio-player-controls {
+    margin-top: 10px;
+}
+
+.audio-player-controls button {
+    margin-right: 5px;
+}
+
+.card-body audio {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.card-body h5, .card-body p {
+    color: #333;
+}
+
+/* Cambiar el color de fondo cuando se minimiza */
+.audio-player.minimized {
+    height: 50px;
+    overflow: hidden;
+}
+
+.audio-player.minimized audio {
+    display: none;
+}
+.audio-player {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.audio-player-controls button {
+    transition: background-color 0.3s ease;
+}
+
+.audio-player-controls button:hover {
+    background-color: #555;
+}
+
+.audio-player.minimized {
+    height: 50px;
+    overflow: hidden;
+}
+
+.audio-player.minimized audio {
+    display: none;
+}

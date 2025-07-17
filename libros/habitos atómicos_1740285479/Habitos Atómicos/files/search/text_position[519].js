@@ -1,0 +1,1 @@
+positionForPages[519]={"page":519,"positions":[{"word":"[5]","left":0.127312,"top":0.161643,"width":0.018419,"height":0.012571},{"word":" Pat Riley, Byron Laurse, op. cit. <<","left":0.147231,"top":0.163750,"width":0.354687,"height":0.017405}]};

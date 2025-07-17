@@ -1,0 +1,1 @@
+positionForPages[492]={"page":492,"positions":[{"word":"[10]","left":0.127312,"top":0.161643,"width":0.027610,"height":0.012571},{"word":" Robert Plomin, llamada telef\u00f3nica con el autor el 9 de agosto 2016. <<","left":0.156422,"top":0.163750,"width":0.700658,"height":0.017405}]};
