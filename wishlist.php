@@ -87,7 +87,7 @@ if(isset($_GET['delete_all'])){
    <?php
          }
       }else{
-         echo '<p class="empty">TU LISTA DE DESEOS ESTÁ VACÍA</p>';
+         echo '<p class="empty"><a href="shop.php" style="text-decoration: none; color: inherit;">TU LISTA DE DESEOS ESTÁ VACIA, CONOCE NUESTRA VARIEDA DE LIBROS</a></p>';
       }
    ?>
    </div>

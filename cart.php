@@ -81,7 +81,7 @@ if(isset($_GET['delete_all'])){
    $grand_total += $fetch_cart['price']; // Solo sumamos el precio de cada libro
       }
    }else{
-      echo '<p class="empty">¡TU CARRITO DE COMPRAS ESTÁ VACÍO!</p>';
+      echo '<p class="empty"><a href="shop.php" style="text-decoration: none; color: inherit;">TU CARRITO DE COMPRAS ESTA VACIO, CONOCE NUESTRA VARIEDADE LIBROS</a></p>';
    }
    ?>
    </div>

@@ -18,7 +18,7 @@ if(isset($_SESSION['user_id'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>MIS PEDIDOS</title>
+   <title>MIS AUDIOLIBROS</title>
    
    <!-- Enlace de Font Awesome -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -86,13 +86,19 @@ if(isset($_SESSION['user_id'])){
    <?php
          }
       } else {
-         echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; color: inherit;">¡INICIA SESIÓN PARA CONOCER TUS AUDIOLIBROS!</a></p>'; //Aquí aun hay dudas
+         ?>
+      <div style="text-align: center; margin-top: 20px;">
+         <?php if($user_id == ''){ ?>
+            <p class="empty"><a href="user_login.php" style="text-decoration: none; color: inherit;">INICIA SESIÓN PARA CONOCER TUS AUDIOLIBROS</a></p>
+         <?php } else { ?>
+            <p class="empty"><a href="shopaudio.php" style="text-decoration: none; color: inherit;">CONOCE NUESTRA VARIEDAD DE AUDIOLIBROS</a></p>
+         <?php } ?>
+      </div>
+   <?php
       }
    ?>
    </div>
-
    </section>
-
    <?php include 'components/footer.php'; ?>
    <script src="js/script.js"></script>
 </body>
