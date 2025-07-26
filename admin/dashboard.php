@@ -67,7 +67,7 @@ foreach ($top_books as $book) {
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
    <link rel="stylesheet" href="../css/admin_style.css">
-
+   
    <!-- Añade Chart.js -->
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -366,3 +366,5 @@ xAxisSales.data.setAll(dataSales);
 
 
 </script>
+</body>
+</html>

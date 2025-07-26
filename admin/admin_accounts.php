@@ -64,8 +64,14 @@ if (isset($_GET['delete'])) {
          $select_accounts->execute();
          if ($select_accounts->rowCount() > 0) {
             while ($fetch_accounts = $select_accounts->fetch(PDO::FETCH_ASSOC)) {   
+               $profile_img = !empty($fetch_accounts['profile_picture']) ? $fetch_accounts['profile_picture'] : '../uploaded_profiles/default.png';
       ?>
       <div class="box">
+         <!-- Imagen de perfil ajustada al tamaño del contenedor -->
+         <img src="<?= htmlspecialchars($profile_img) ?>" 
+              alt="Foto del administrador" 
+              style="width: 100%; max-width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin: 0 auto 15px; display: block;">
+
          <p> admin id : <span><?= $fetch_accounts['id']; ?></span> </p>
          <p> admin: <span><?= $fetch_accounts['name']; ?></span> </p>
          <div class="flex-btn">
@@ -94,3 +100,4 @@ if (isset($_GET['delete'])) {
 
 </body>
 </html>
+
