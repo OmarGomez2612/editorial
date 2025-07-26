@@ -14,11 +14,24 @@ if (!isset($admin_id)) {
 if (isset($_GET['delete'])) {
    $delete_id = $_GET['delete'];
 
-   // Primero eliminamos el administrador de la base de datos
+   // Obtener la imagen antes de eliminar el administrador
+   $get_admin_img = $conn->prepare("SELECT profile_picture FROM `admins` WHERE id = ?");
+   $get_admin_img->execute([$delete_id]);
+   if ($get_admin_img->rowCount() > 0) {
+      $admin_data = $get_admin_img->fetch(PDO::FETCH_ASSOC);
+      $profile_img_path = $admin_data['profile_picture'];
+
+      // Eliminar imagen si no es la imagen por defecto
+      if (!empty($profile_img_path) && $profile_img_path !== '../uploaded_profiles/default.png' && file_exists($profile_img_path)) {
+         unlink($profile_img_path);
+      }
+   }
+
+   // Eliminar administrador de la base de datos
    $delete_admins = $conn->prepare("DELETE FROM `admins` WHERE id = ?");
    $delete_admins->execute([$delete_id]);
 
-   // Si el administrador eliminado es el que está en sesión, cerramos la sesión
+   // Si era el admin en sesión, cerrar sesión
    if ($delete_id == $admin_id) {
        session_unset();
        session_destroy();
@@ -67,7 +80,7 @@ if (isset($_GET['delete'])) {
                $profile_img = !empty($fetch_accounts['profile_picture']) ? $fetch_accounts['profile_picture'] : '../uploaded_profiles/default.png';
       ?>
       <div class="box">
-         <!-- Imagen de perfil ajustada al tamaño del contenedor -->
+         <!-- Imagen de perfil ajustada -->
          <img src="<?= htmlspecialchars($profile_img) ?>" 
               alt="Foto del administrador" 
               style="width: 100%; max-width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin: 0 auto 15px; display: block;">
@@ -100,4 +113,3 @@ if (isset($_GET['delete'])) {
 
 </body>
 </html>
-
