@@ -33,7 +33,7 @@
       <section class="show-products">
 
          <h1 class="heading">LIBROS AGREGADOS</h1> <br>
-         <a href="dashboard.php" class="btn">VOLVER</a> <br>
+         
          <div class="box-container">            
          <?php
             // Ejecutamos la consulta con JOIN para obtener la categoría

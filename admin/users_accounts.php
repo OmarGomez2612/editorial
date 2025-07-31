@@ -36,9 +36,7 @@ if(isset($_GET['delete'])){
    <title>CUENTAS DE USUARIOS</title>
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
    <link rel="stylesheet" href="../css/admin_style.css">
-
 </head>
 <body>
 
@@ -58,9 +56,15 @@ if(isset($_GET['delete'])){
    ?>
    <div class="box">
       <p>ID de usuario: <span><?= $fetch_accounts['id']; ?></span></p>
-      <p>Nombre de usuario: <span><?= $fetch_accounts['name']; ?></span></p>
+      <p>Nombre: <span><?= $fetch_accounts['name']; ?></span></p>
+      <p>Apellido paterno: <span><?= $fetch_accounts['apellido_paterno']; ?></span></p>
+      <p>Apellido materno: <span><?= $fetch_accounts['apellido_materno']; ?></span></p>
+      <p>Edad: <span><?= $fetch_accounts['edad']; ?></span></p>
+      <p>Telefono: <span><?= $fetch_accounts['telefono']; ?></span></p>
       <p>Email: <span><?= $fetch_accounts['email']; ?></span></p>
-      <a href="users_accounts.php?delete=<?= $fetch_accounts['id']; ?>" onclick="return confirm('¿Eliminar esta cuenta? ¡La información relacionada con el usuario también será eliminada!')" class="delete-btn">ELIMINAR</a>
+      <a href="users_accounts.php?delete=<?= $fetch_accounts['id']; ?>" 
+         onclick="return confirm('¿Eliminar esta cuenta? ¡La información relacionada con el usuario también será eliminada!')" 
+         class="delete-btn">ELIMINAR</a>
    </div>
    <?php
          }
@@ -74,6 +78,6 @@ if(isset($_GET['delete'])){
 </section>
 
 <script src="../js/admin_script.js"></script>
-   
+
 </body>
 </html>

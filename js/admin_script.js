@@ -25,3 +25,13 @@ subImages.forEach(images =>{
       mainImage.src = src;
    }
 });
+document.addEventListener("DOMContentLoaded", function() {
+   const userBtn = document.querySelector('#user-btn');
+   const profileBox = document.querySelector('.profile');
+
+   if (userBtn && profileBox) {
+      userBtn.addEventListener('click', () => {
+         profileBox.classList.toggle('active');
+      });
+   }
+});

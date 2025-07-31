@@ -658,3 +658,39 @@ section{
       font-size: 1.4rem; /* Tamaño más compacto en móviles */
    }
 }
+.profile {
+   display: none;
+   position: absolute;
+   top: 80px;
+   right: 20px;
+   background: #fff;
+   padding: 1rem;
+   border-radius: 8px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+   z-index: 1000;
+}
+
+.profile.active {
+   display: block;
+}
+
+.profile-pic-wrapper {
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #f0f0f0; /* opcional, útil para imágenes transparentes */
+}
+
+.profile-pic {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   display: block;
+}
+
+
+

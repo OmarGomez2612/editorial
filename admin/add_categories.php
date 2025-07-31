@@ -34,7 +34,6 @@ if (!isset($admin_id)) {
     <section class="add-products">
 
         <h1 class="heading">AGREGAR CATEGORÍA</h1>
-        <br><a href="dashboard.php" class="btn">VOLVER</a> <br>
 
         <form action="" method="post" enctype="multipart/form-data">
             <div class="inputBox">
