@@ -31,17 +31,13 @@
       <!-- Icons Section -->
       <div class="icons">
          <?php
-            // Verificamos si el usuario está autenticado y existe el ID de usuario en la sesión
             if(isset($_SESSION['user_id'])) {
-               // Usamos directamente $_SESSION['user_id'] en lugar de $user_id
                $user_id = $_SESSION['user_id'];
 
-               // Contar artículos en la lista de deseos
                $count_wishlist_items = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id = ?");
                $count_wishlist_items->execute([$user_id]);
                $total_wishlist_counts = $count_wishlist_items->rowCount();
 
-               // Contar artículos en el carrito de compras
                $count_cart_items = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
                $count_cart_items->execute([$user_id]);
                $total_cart_counts = $count_cart_items->rowCount();
@@ -58,13 +54,16 @@
       <div class="profile">
          <?php
             if(isset($_SESSION['user_id'])){
-               // Si el usuario está autenticado
-               $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+               $select_profile = $conn->prepare("SELECT name, profile_picture FROM `users` WHERE id = ?");
                $select_profile->execute([$_SESSION['user_id']]);
                if($select_profile->rowCount() > 0){
                   $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+                  $profile_img = !empty($fetch_profile['profile_picture']) ? $fetch_profile['profile_picture'] : 'uploaded_profiles/default.png';
          ?>
-         <p class="profile-name"><?= htmlspecialchars($fetch_profile["name"]); ?></p>
+         <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="<?= htmlspecialchars($profile_img) ?>" alt="Foto de perfil" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+            <p class="profile-name"><?= htmlspecialchars($fetch_profile["name"]); ?></p>
+         </div>
          <a href="update_user.php" class="btn btn-update">ACTUALIZAR PERFIL</a>
          <a href="components/user_logout.php" class="delete-btn" onclick="return confirm('¿Cerrar sesión del sitio web?');">CERRAR SESIÓN</a>
          <?php
