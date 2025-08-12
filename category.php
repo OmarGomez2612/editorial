@@ -134,7 +134,7 @@ if (empty($category)) {
                       <?php endif; ?>
                    <?php elseif ($is_free_category): ?>
                       <!-- Si el producto es gratis, mostrar el botón "Escuchar ahora" que redirige a listen_book.php -->
-                      <a href="listen_book.php?pid=<?= $fetch_product['id']; ?>" class="btn">ESCUCHAR AHORAs</a>
+                      <a href="listen_book.php?pid=<?= $fetch_product['id']; ?>" class="btn">ESCUCHAR AHORA</a>
                    <?php else: ?>
                       <!-- Si el producto no ha sido comprado, se muestra el botón de agregar al carrito -->
                       <input type="submit" value="<?= $button_label; ?>" class="btn" name="<?= $button_name; ?>">

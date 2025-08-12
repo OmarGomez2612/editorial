@@ -31,6 +31,61 @@ include 'components/wishlist_cart.php';
 
    <!-- CSS to remove image borders -->
    <style>
+      /* SOLO para recuadros en secciones home-products (novedades y libros gratis) */
+.home-products .swiper-slide.slide {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   height: 430px; /* Ajusta este valor si es necesario */
+   padding: 10px;
+   box-sizing: border-box;
+   background-color: #fff;
+   border-radius: 8px;
+   overflow: hidden;
+}
+
+.home-products .swiper-slide.slide img {
+   max-height: 200px;
+   object-fit: contain;
+   margin: 0 auto 10px;
+}
+
+.home-products .swiper-slide.slide .name {
+   font-size: 1.9rem;
+   font-weight: bold;
+   text-align: center;
+   height: 45px;
+   line-height: 1.3;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; 
+   -webkit-box-orient: vertical;
+   margin-bottom: 8px;
+}
+
+.home-products .swiper-slide.slide .product-type {
+   font-size: 0.9rem;
+   color: #555;
+   text-align: center;
+   margin-bottom: 10px;
+}
+
+.home-products .swiper-slide.slide .flex {
+   margin-top: auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 5px;
+   margin-bottom: 10px;
+}
+
+.home-products .swiper-slide.slide .btn {
+   display: block;
+   text-align: center;
+   margin-top: auto;
+}
+
       img {
          border: none;
          outline: none;
@@ -300,88 +355,74 @@ if ($category) {
    });
 </script>
 
-
-
-
 <section class="home-products">
    <h1 class="heading">NOVEDADES</h1>
    <div class="swiper products-slider">
       <div class="swiper-wrapper">
          <?php
-         if ($user_id) {
-            // Preparar la consulta para obtener productos
-            $select_products = $conn->prepare("SELECT * FROM `products` LIMIT 6");
-            $select_products->execute();
-            
-            if($select_products->rowCount() > 0){
-               while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
-                  // Consultar si el producto ha sido comprado por el usuario en la tabla payment_items
-                  $select_payment = $conn->prepare("SELECT * 
-                                                    FROM `payment_items` pi
-                                                    INNER JOIN `payments` p ON pi.payment_id = p.payment_id
-                                                    WHERE pi.product_id = ? AND p.user_id = ?");
-                  $select_payment->execute([$fetch_product['id'], $user_id]);
-                  $is_purchased = $select_payment->rowCount() > 0; // True si ya fue comprado
+         // Obtener productos más recientes
+         $select_products = $conn->prepare("SELECT * FROM `products` ORDER BY id DESC LIMIT 6");
+         $select_products->execute();
 
-                  // Determinar la leyenda del tipo de producto
-                  $product_type = ($fetch_product['type_id'] == 1) ? 'Libro' : 'Audiolibro';
-                  
-                  // Cambiar el texto del botón dependiendo de si el producto ha sido comprado o no
-                  $button_label = $is_purchased ? (($fetch_product['type_id'] == 1) ? 'LEER AHORA' : 'ESCUCHAR AHORA') : 'AÑADIR AL CARRITO';
-                  $button_name = $is_purchased ? '' : 'add_to_cart'; // Si ya fue comprado, no se mostrará el botón para agregar al carrito.
+         if ($select_products->rowCount() > 0) {
+            while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
+
+               $is_purchased = false;
+
+               // Verificar si el producto ya fue comprado (si hay sesión)
+               if ($user_id) {
+                  $select_payment = $conn->prepare("SELECT * 
+                     FROM `payment_items` pi
+                     INNER JOIN `payments` p ON pi.payment_id = p.payment_id
+                     WHERE pi.product_id = ? AND p.user_id = ?");
+                  $select_payment->execute([$fetch_product['id'], $user_id]);
+                  $is_purchased = $select_payment->rowCount() > 0;
+               }
+
+               $product_type = ($fetch_product['type_id'] == 1) ? 'Libro' : 'Audiolibro';
+               $button_label = $is_purchased ? (($fetch_product['type_id'] == 1) ? 'LEER AHORA' : 'ESCUCHAR AHORA') : 'AÑADIR AL CARRITO';
+               $button_name = $is_purchased ? '' : 'add_to_cart';
          ?>
          <form action="" method="post" class="swiper-slide slide">
             <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
             <input type="hidden" name="name" value="<?= $fetch_product['name']; ?>">
             <input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
             <input type="hidden" name="image" value="<?= $fetch_product['image_01']; ?>">
-            
-             <!-- Si el producto no ha sido comprado, mostrar los botones de wishlist y quick view -->
-            <?php if (!$is_purchased) { ?>
+
+            <?php if (!$is_purchased): ?>
                <button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
                <a href="quick_view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
-            <?php } ?>
+            <?php endif; ?>
 
-            
             <?php
-            // Mostrar la imagen según el tipo de producto
             if ($fetch_product['type_id'] == 1) {
                echo '<img src="libros/' . htmlspecialchars($fetch_product['book_folder'] . '/' . $fetch_product['image_01']) . '" alt="Imagen del libro">';
             } elseif ($fetch_product['type_id'] == 2) {
                echo '<img src="audiolibros/' . htmlspecialchars($fetch_product['book_folder'] . '/' . $fetch_product['image_01']) . '" alt="Imagen del audiolibro">';
             }
             ?>
-            
-            <!-- Nombre y precio -->
+
             <div class="name"><?= $fetch_product['name']; ?></div>
-            
-            <!-- Leyenda según tipo de producto -->
             <div class="product-type"><?= $product_type; ?></div>
 
             <div class="flex">
                <div class="price"><span>$</span><?= $fetch_product['price']; ?><span> MXN</span></div>
             </div>
 
-            <!-- Botón de agregar al carrito o leer/escuchar dependiendo de si se compró -->
-            <?php if ($is_purchased): ?>
-                <!-- Si el producto ha sido comprado, el botón redirige a la página correspondiente -->
-                <?php if ($fetch_product['type_id'] == 1): ?>
-                    <a href="read_book.php?id=<?= $fetch_product['id']; ?>" class="btn"><?= $button_label; ?></a>
-                <?php elseif ($fetch_product['type_id'] == 2): ?>
-                    <a href="listen_book.php?pid=<?= $fetch_product['id']; ?>" class="btn"><?= $button_label; ?></a>
-                <?php endif; ?>
+            <?php if ($user_id && $is_purchased): ?>
+               <?php if ($fetch_product['type_id'] == 1): ?>
+                  <a href="read_book.php?id=<?= $fetch_product['id']; ?>" class="btn"><?= $button_label; ?></a>
+               <?php elseif ($fetch_product['type_id'] == 2): ?>
+                  <a href="listen_book.php?pid=<?= $fetch_product['id']; ?>" class="btn"><?= $button_label; ?></a>
+               <?php endif; ?>
             <?php else: ?>
-                <!-- Si el producto no ha sido comprado, se muestra el botón de agregar al carrito -->
-                <input type="submit" value="<?= $button_label; ?>" class="btn" name="<?= $button_name; ?>">
+               <input type="submit" value="<?= $button_label; ?>" class="btn" name="<?= $button_name; ?>">
             <?php endif; ?>
          </form>
          <?php
-               }
-            } else {
-               echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; color: inherit;">¡NO HAY LIBROS DISPONIBLES!</a></p>'; //Solo para guardar
             }
          } else {
-            echo '<p class="empty"><a href="user_login.php" style="text-decoration: none; inherit;">Por favor, inicie sesión para ver sus productos comprados.</a></p>';
+            echo '<p class="empty">¡No hay productos disponibles!</p>';
          }
          ?>
       </div>
@@ -437,24 +478,38 @@ var swiper = new Swiper(".category-slider", {
    },
 });
 
-var swiper = new Swiper(".products-slider", {
-   loop:true,
+var swiperProducts = new Swiper(".products-slider", {
+   loop: true,
    spaceBetween: 20,
    pagination: {
       el: ".swiper-pagination",
-      clickable:true,
+      clickable: true,
+   },
+   autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
    },
    breakpoints: {
       550: {
-        slidesPerView: 2,
+         slidesPerView: 2,
       },
       768: {
-        slidesPerView: 2,
+         slidesPerView: 2,
       },
       1024: {
-        slidesPerView: 3,
+         slidesPerView: 3,
       },
    },
+});
+
+// Pausar autoplay al pasar el mouse (hover) y reanudar al salir
+document.querySelectorAll('.products-slider').forEach(function(slider) {
+   slider.addEventListener('mouseenter', function() {
+      swiperProducts.autoplay.stop();
+   });
+   slider.addEventListener('mouseleave', function() {
+      swiperProducts.autoplay.start();
+   });
 });
 
 </script>
